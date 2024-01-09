@@ -34,8 +34,18 @@ void gabarito_prova(int *quantidade, char ***gabarito)
     sleep(1);
 }
 
-//Funcão para preecher a prova;
+//Função para mostrar a porcentagem de aprovação;
+void porcentagem_aprovados(int *valor_da_porcentagem, int *resultado)
+{
+    int total = 0;
+    
+    printf("Quantos alunos fizeram a prova: \n");
+    scanf("%d",&total);
 
+    *resultado = ((*valor_da_porcentagem) * 100) / total;  
+    
+    printf("A porcentagem dos alunos aprovados foran de: %d por cento\n",*resultado);
+}
 //Estrutura para guardar o dado de cada aluno; 
 typedef struct aluno
 {
@@ -51,6 +61,9 @@ int main()
    
     int quantidade = 0;//criei uma variavel que irar guardar o valor de quantas questões terão na prova;
     
+    int aprovados = 0;//variavel criada para calcular a quantidade de pessoas aprovadas na sala;
+    int resultados = 0;//variavel criada para mostrar a porcentagens de aprovados;
+
     int numero = 0; // variada criada para ser utilizada em estruturas de repetição;
     int ordem = 0; // variada criada para ser utilizada em estruturas de repetição;
 
@@ -64,7 +77,7 @@ int main()
     
     system("clear");
 
-    //Segunda etapa, meta: mostrar a nota de cada aluno - EM PROCESSO....
+    //Segunda etapa, meta: mostrar a nota de cada aluno - CONCLUIDA!!!!! 3 DIAS DE LUTA PRA ACHAR O ERRO DA FUNÇÃO CORRIGIR PROVA;
 
     //função para preencher a prova de cada aluno;
     for(numero = 0; numero < 2; numero++)//função que irar guardar o nome do aluno;
@@ -93,15 +106,30 @@ int main()
     //função para corrigir a prova do aluno;
     for(numero = 0; numero < 2; numero++)
     {
+        aluno[numero].nota = 0;
         for(ordem = 0; ordem < quantidade; ordem++)
         { 
             if(strcmp(aluno[numero].respostas[ordem], gabarito[ordem]) == 0)
             {
-                aluno[numero].nota ++;
+                aluno[numero].nota = aluno[numero].nota + 10/quantidade;
             }
         }
         printf("nota do aluno %s: %d\n\n", aluno[numero].nome, aluno[numero].nota);
     }
+
+    //Terceira etapa, meta: mostrar a porcentagem de aprovação de cava aluno, nota minima para ser aprovado = 6 - EM PROCESO...
+
+    //Função para verificar a quantidade de alunos aprovados;
+
+    for(numero = 0; numero < 2; numero ++)
+    { 
+        if(aluno[numero].nota > 6)
+        {
+            aprovados++;
+        }
+    }
+
+    porcentagem_aprovados(&aprovados, &resultados);
 
     return 0;
 }
