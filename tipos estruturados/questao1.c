@@ -83,7 +83,9 @@ int main()
         }
         scanf("%d",&n_funcionario);
         alterarsalario(&dados[n_funcionario]);
-        system("clear");
+        system("clear"); 
+
+        
     }
     else
     {
