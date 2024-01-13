@@ -31,7 +31,7 @@ void preencher_funcionario(funcionarios *dados)//funcao para preecher os dados d
 
 void imprimirdados(funcionarios *dados)//funcao para imprimir os dados de cada usuario;
 {    
-    printf("Funcionario: %s\n", dados->nome);
+    printf("Funcionario: %s\n",dados->nome);
     printf("Salario: %d\n",dados->salario);
     printf("Indentificacao:%d\n",dados->indentificador);
     printf("Cargo:%s\n",dados->cargo);
@@ -66,30 +66,59 @@ int main()
     sleep(3);
     system("clear");
 
-    //3 META: criar uma função que altere os salarios dos funcionarios - EM PROCESSO;
-    char escolha[3];
+    //3 META: criar uma função que altere os salarios dos funcionarios - COMCLUIDO;
+    
+    int escolha;
+    
     printf("Existe algum funcionario que voce quer alterar o salario?\n");
-    printf("S/N\n");
-    scanf("%s",escolha);
-
-    if(escolha == 'S')
+    printf("Digite algum numero 1-Sim  2-Nao:\n");
+    scanf("%d", &escolha);
+   
+   
+    if(escolha == 1)
     {
-        int n_funcionario = 0;//variavel criada para entrar no endereco do usuario;
-        printf("Escolha um funcionario para alterar o salario:\n");
-        for(int ordem = 0; ordem < quantidade; ordem++)
+        int indentificador = 0;//variavel criada para entrar no endereco do usuario;
+        
+        printf("Qual funcionario voce deseja alterar o salario?\n\n");
+        
+        for(int ordem = 0; ordem < quantidade; ordem++)//Estrutura de repeticao criada para listar os funcionarios;
         { 
-            printf("Numero do funcionario : %d\n",ordem + 1);
             imprimirdados(&dados[ordem]);
         }
-        scanf("%d",&n_funcionario);
-        alterarsalario(&dados[n_funcionario]);
-        system("clear"); 
-
+       
+        printf("Digite o indentificador do funcionario que voce deseja alterar o salario:\n");
+        scanf("%d",&indentificador);
         
+        for(int ordem = 0; ordem < quantidade; ordem++)
+        {
+            if(strcmp(dados[ordem].indentificador, indentificador) == 0)
+            {
+                alterarsalario(&dados[ordem]);
+            }
+            else
+            {
+
+            }
+        }
+        
+        printf("Novo salario do funcionario:\n");
+        imprimirdados(&dados[indentificador]);
+        
+        sleep(2);
+        system("clear"); 
     }
     else
     {
-        
+        printf("guardando os dados.\n");
+        sleep(1);
+        system("clear\n");
+        printf("guardando os dados..\n");
+        sleep(1);
+        system("clear\n");
+        printf("guardando os dados...\n");
+        sleep(1);
+        system("clear\n");
     }
+    
     return 0;
 }
