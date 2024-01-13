@@ -44,6 +44,13 @@ void alterarsalario(funcionarios *dados)//funcao criada para alterar o valor do 
     scanf("%d",&dados->salario);
 }
 
+void maior_menor_salario(funcionarios **dados, int *quantidade)
+{
+    *dados = (funcionarios)malloc(*quantidade * sizeof(funcionarios));
+    
+
+}
+
 int main() 
 { 
     //1 META: criar uma função que armazene a quantidade de funcionarios e fazer uma função para preencher os dados dos funcionarios - COMPLETO;
@@ -91,7 +98,7 @@ int main()
         
         for(int ordem = 0; ordem < quantidade; ordem++)
         {
-            if(dados[ordem].indentificador == indentificacao  )
+            if(dados[ordem].indentificador == indentificacao  )//estava errando aqui porque estava tentando comparar 2 tipos de array;
             {
                 alterarsalario(&dados[ordem]);
             }
@@ -118,5 +125,7 @@ int main()
 
     //4 META: escrever uma função que mostre o funcionario que ganha mais e o funcionario que ganha menos;
     
+    maior_menor_salario(&dados, &quantidade);
+
     return 0;
 }
