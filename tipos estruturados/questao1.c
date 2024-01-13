@@ -40,7 +40,7 @@ void imprimirdados(funcionarios *dados)//funcao para imprimir os dados de cada u
 
 void alterarsalario(funcionarios *dados)//funcao criada para alterar o valor do salario de qualquer funcionario;
 {
-    printf("Digite o novo valor do funcionario:\n");
+    printf("Digite o novo salario do funcionario:\n");
     scanf("%d",&dados->salario);
 }
 
@@ -77,7 +77,7 @@ int main()
    
     if(escolha == 1)
     {
-        int indentificador = 0;//variavel criada para entrar no endereco do usuario;
+        int indentificacao = 0;//variavel criada para entrar no endereco do usuario;
         
         printf("Qual funcionario voce deseja alterar o salario?\n\n");
         
@@ -87,24 +87,20 @@ int main()
         }
        
         printf("Digite o indentificador do funcionario que voce deseja alterar o salario:\n");
-        scanf("%d",&indentificador);
+        scanf("%d",&indentificacao);
         
         for(int ordem = 0; ordem < quantidade; ordem++)
         {
-            if(strcmp(dados[ordem].indentificador, indentificador) == 0)
+            if(dados[ordem].indentificador == indentificacao  )
             {
                 alterarsalario(&dados[ordem]);
-            }
-            else
-            {
-
             }
         }
         
         printf("Novo salario do funcionario:\n");
-        imprimirdados(&dados[indentificador]);
+        imprimirdados(&dados[indentificacao]);
         
-        sleep(2);
+        sleep(10);
         system("clear"); 
     }
     else
@@ -119,6 +115,8 @@ int main()
         sleep(1);
         system("clear\n");
     }
+
+    //4 META: escrever uma função que mostre o funcionario que ganha mais e o funcionario que ganha menos;
     
     return 0;
 }
