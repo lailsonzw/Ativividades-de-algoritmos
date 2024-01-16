@@ -44,11 +44,29 @@ void alterarsalario(funcionarios *dados)//funcao criada para alterar o valor do 
     scanf("%d",&dados->salario);
 }
 
-void maior_menor_salario(funcionarios **dados, int *quantidade)
-{
-    *dados = (funcionarios)malloc(*quantidade * sizeof(funcionarios));
+void maior_menor(funcionarios vetor[], int tamanho) {
     
+    int indiceMaiorSalario = 0;
+    int indiceMenorSalario = 0;
 
+    for (int i = 1; i < tamanho; i++) {
+        if (vetor[i].salario > vetor[indiceMaiorSalario].salario) {
+            indiceMaiorSalario = i;
+        }
+        if (vetor[i].salario < vetor[indiceMenorSalario].salario) {
+            indiceMenorSalario = i;
+        }
+    }
+
+    // Imprimir informações do funcionário com maior salário
+    printf("\nFuncionário com maior salário:\n");
+    printf("Cargo: %s\n", vetor[indiceMaiorSalario].cargo);
+    printf("Salário: %d\n", vetor[indiceMaiorSalario].salario);
+
+    // Imprimir informações do funcionário com menor salário
+    printf("\nFuncionário com menor salário:\n");
+    printf("Cargo: %s\n", vetor[indiceMenorSalario].cargo);
+    printf("Salário: %d\n", vetor[indiceMenorSalario].salario);
 }
 
 int main() 
@@ -107,7 +125,7 @@ int main()
         printf("Novo salario do funcionario:\n");
         imprimirdados(&dados[indentificacao]);
         
-        sleep(10);
+        sleep(5);
         system("clear"); 
     }
     else
@@ -125,7 +143,7 @@ int main()
 
     //4 META: escrever uma função que mostre o funcionario que ganha mais e o funcionario que ganha menos;
     
-    maior_menor_salario(&dados, &quantidade);
+    maior_menor(dados,quantidade);
 
     return 0;
 }
