@@ -121,11 +121,7 @@ int main()
                 alterarsalario(&dados[ordem]);
             }
         }
-        
-        printf("Novo salario do funcionario:\n");
-        imprimirdados(&dados[indentificacao]);
-        
-        sleep(5);
+
         system("clear"); 
     }
     else
