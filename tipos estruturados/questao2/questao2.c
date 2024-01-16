@@ -48,6 +48,32 @@ void newage(data *user)
     
 }
 
+void maisvelho_maisnovo(data user[], int tamanho)
+{
+    int maisvelho = 0;
+    int maisnovo = 0; 
+
+    for(int ordem = 0; ordem < tamanho; ordem++)
+    {
+        if(user[ordem].age > user[maisvelho].age)
+        {
+            maisvelho = ordem;
+        }
+        if(user[ordem].age < user[maisvelho].age)
+        {
+            maisnovo = ordem;
+        }
+    }
+
+    printf("O mais velho:\n");
+    printf("Nome: %s\n",user[maisvelho].name);
+    printf("Idade: %d\n\n",user[maisvelho].age);
+
+    printf("O mais novo:\n");
+    printf("Nome: %s\n", user[maisnovo].name);
+    printf("Idade: %d\n", user[maisnovo].age);
+}
+
 int main()
 {
     int quantidade; //Variavel criada para definir a quantidade de pessoas no progama;
@@ -99,8 +125,9 @@ int main()
         }
 
     }
-
-    //Questão 2, letra D - META, fazer uma funcao que mostre a pessoa mais velha e a pessoa mais nova - EM PROCESSO;
-
+    system("clear");
     
+    //Questão 2, letra D - META, fazer uma funcao que mostre a pessoa mais velha e a pessoa mais nova - COMCLUIDA;
+
+    maisvelho_maisnovo(person, quantidade);
 }
