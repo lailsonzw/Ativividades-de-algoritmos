@@ -5,7 +5,6 @@
 #include <string.h>
 #include <unistd.h>
 
-
 //primeiro problema criar um enum para armazenar o genero da pessoa; RESOLVIDO
 typedef enum individuo{
     masculino =1,
@@ -35,24 +34,7 @@ void lerdados(dados *pessoa)
 //quarto problema: fazer um codigo que imprima os dados do usuario; RESOLVIDO
 void imprimirdados(dados *pessoa)
 {
-    printf("Nome: %s\n",pessoa->nome);
-    printf("Idade: %d\n",pessoa->idade);
-    
-    if(pessoa->sexo >= masculino && pessoa->sexo <= feminino)    {
-        switch (pessoa->sexo)
-        {
-        case masculino:
-            printf("Genero: masculino\n");
-            break;
-        
-        case feminino:
-            printf("Genero: feminino\n");
-            break;
-
-        default:
-            break;
-        }
-    }
+    printf("Nome: %s\n Idade: %d\n Genero: %s\n",pessoa->nome, pessoa->idade, pessoa->sexo==masculino? "Masculino":"Feminino"); 
 }
 
 int main()

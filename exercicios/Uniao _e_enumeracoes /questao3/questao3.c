@@ -30,60 +30,7 @@ int main(void)
   //Testando se o valor está na faixa válida usando os valores da enum
   if(tempo.mes > 0 && tempo.mes <= Dezembro)
   {
-  
-    //switch que determina qual mes será impresso na tela
-    switch(tempo.mes)
-    {
-    
-    case Janeiro:
-      printf("data atual: %d/0%d/%d",tempo.dia, tempo.mes, tempo.ano);
-    break;
-    
-    case Fevereiro:
-      printf("data atual: %d/0%d/%d",tempo.dia, tempo.mes, tempo.ano);
-    break;
-    
-    case Marco:
-      printf("data atual: %d/0%d/%d",tempo.dia, tempo.mes, tempo.ano);   
-    break;
-    
-    case Abril:
-      printf("data atual: %d/0%d/%d",tempo.dia, tempo.mes, tempo.ano);
-    break;
-    
-    case Maio:
-      printf("data atual: %d/0%d/%d",tempo.dia, tempo.mes, tempo.ano);
-    break;
-    
-    case Junho:
-      printf("data atual: %d/0%d/%d",tempo.dia, tempo.mes, tempo.ano);   
-    break;
-    
-    case Julho:
-      printf("data atual: %d/0%d/%d",tempo.dia, tempo.mes, tempo.ano);
-    break;
-    
-    case Agosto:
-      printf("data atual: %d/0%d/%d",tempo.dia, tempo.mes, tempo.ano);  
-    break;
-    
-    case Setembro:
-      printf("data atual: %d/0%d/%d",tempo.dia, tempo.mes, tempo.ano);   
-    break;
-    
-    case Outubro:
-      printf("data atual: %d/0%d/%d",tempo.dia, tempo.mes, tempo.ano);   
-    break;
-      printf("data atual: %d/%d/%d",tempo.dia, tempo.mes, tempo.ano);
-    
-    case Novembro:
-      printf("data atual: %d/%d/%d",tempo.dia, tempo.mes, tempo.ano);
-    break;
-  
-    case Dezembro:
-      printf("data atual: %d/%d/%d",tempo.dia, tempo.mes, tempo.ano);
-    break;
-    }
+    printf("data atual: %02d/%02d/%d",tempo.dia, tempo.mes, tempo.ano);
   }
   else //senão estiver na faixa válida exibe mensagem
   {
