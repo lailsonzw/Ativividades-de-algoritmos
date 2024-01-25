@@ -12,12 +12,12 @@ int main()
     float area, perimetro, l;
     
     printf("digite o lado do hexagono para calcular a area e o perimetro:\n");
-    scanf("%f",l);
+    scanf("%f",&l);
    
     calcula_hexagono(l,&area,&perimetro);
    
     printf("Area do hexagono = %f\n",area);
-    printf("Perimetro do hexagono = %f\n");
+    printf("Perimetro do hexagono = %f\n",perimetro);
 
     return 0;
 }
