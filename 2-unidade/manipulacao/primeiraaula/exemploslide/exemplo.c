@@ -18,10 +18,8 @@ int main()
         if(c == '\n')
             nlinhas++;
     }
-    //fecha arquivo;
-    fclose(fp);
     //exibe resultado na tela;
     printf("Numero de linhas = %d\n",nlinhas);
-
+//
     return 0;
 }
