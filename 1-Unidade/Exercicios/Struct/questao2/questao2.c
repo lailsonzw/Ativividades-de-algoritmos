@@ -3,12 +3,12 @@
 #include <string.h>
 #include <unistd.h>
 
-typedef struct person
+struct person
 {
     char name [20];
     int documents;
     int age;
-}data;//Estrutura criada para armazenar os dados de uma pessoa;
+};//Estrutura criada para armazenar os dados de uma pessoa;
 
 void def_quantidade(int *quantidade)//Funcao criada para definir a quantidade de pessoas no progama;
 {
